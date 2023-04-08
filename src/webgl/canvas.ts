@@ -26,7 +26,7 @@ export class Canvas extends MyDisplay {
     let renderParam: any = {
       canvas: this.el,
       antialias: true,
-      preserveDrawingBuffer: true,
+      preserveDrawingBuffer: false,
       powerPreference: "low-power",
       alpha: true,
     };
