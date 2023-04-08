@@ -40,6 +40,7 @@ export class Item extends MyObject3D {
         u_texture: { value: TexLoader.instance.get(image) },
         u_mask: { value: TexLoader.instance.get(mask) },
       },
+      transparent: true,
     });
 
     this._mesh = new THREE.Mesh(geometry, this._material);
