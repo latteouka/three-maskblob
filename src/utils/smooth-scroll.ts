@@ -12,7 +12,7 @@ export const lenis = new Lenis({
       : Math.pow(2, -10 * t) * Math.sin((t * 12 - 0.75) * c4) + 1;
   },
   infinite: true,
-  smoothTouch: true,
+  // smoothTouch: true,
 });
 
 function raf(time: number) {
