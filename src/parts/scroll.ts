@@ -1,10 +1,11 @@
 import Lenis from "@studio-freight/lenis";
 import gsap from "gsap";
+import { Func } from "../core/func";
 import { lenis } from "../utils/smooth-scroll";
 
 const max = 5;
 const distance = 1000;
-const triggerVelocity = 50;
+const triggerVelocity = Func.instance.sw() > 600 ? 50 : 20;
 
 gsap.defaults({ overwrite: true });
 
