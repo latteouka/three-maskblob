@@ -1,0 +1,64 @@
+@use "./global";
+@use "./global/mixin" as *;
+@use "./pages/home";
+
+:root {
+  --backgroundColor: #fff;
+  --fontColor: #f8cfcf;
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  background-color: var(--backgroundColor);
+  transition: all 1s;
+  overflow: hidden;
+}
+
+.wrap {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap-reverse;
+  gap: 2rem;
+
+  &:first-child .title {
+    opacity: 1;
+  }
+}
+.title {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  color: var(--fontColor);
+
+  &-wrap {
+    position: relative;
+    width: 40vw;
+    min-width: 400px;
+    height: 5rem;
+    font-size: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  @include sp {
+    height: 0;
+    min-height: 0;
+  }
+}
+
+.image {
+  width: 40vw;
+  height: 40vw;
+  min-width: 400px;
+  min-height: 400px;
+  // border: 1px solid #000;
+}
