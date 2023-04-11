@@ -7,11 +7,9 @@ const max = 5;
 const distance = 1000;
 const triggerVelocity = Func.instance.sw() > 600 ? 50 : 20;
 
-gsap.defaults({ overwrite: true });
-
 const theme = [
   {
-    background: "#fff",
+    background: "#a0a0a0",
     color: "#f8cfcf",
   },
   {
@@ -28,7 +26,7 @@ const theme = [
   },
   {
     background: "#abb1fd",
-    color: "#9d8aff",
+    color: "#d56cfe",
   },
 ];
 
@@ -69,6 +67,7 @@ function setupScrollTrigger() {
     } else {
       if (moving) return;
 
+      gsap.defaults({ overwrite: true });
       const isNext = velocity > 0;
       // container.style.backgroundColor = theme[getNext()].background;
       document.documentElement.style.setProperty(
@@ -81,13 +80,23 @@ function setupScrollTrigger() {
       );
 
       const titleNow = wraps[activeIndex].querySelector(
-        ".title"
+        ".mainTitle"
       )! as HTMLDivElement;
       const titleNext = wraps[isNext ? getNext() : getPre()].querySelector(
-        ".title"
+        ".mainTitle"
+      )! as HTMLDivElement;
+
+      const subtitleNow = wraps[activeIndex].querySelector(
+        ".subtitle"
+      )! as HTMLDivElement;
+      const subtitleNext = wraps[isNext ? getNext() : getPre()].querySelector(
+        ".subtitle"
       )! as HTMLDivElement;
 
       gsap.set(titleNow, {
+        opacity: 0,
+      });
+      gsap.set(subtitleNow, {
         opacity: 0,
       });
 
@@ -116,11 +125,20 @@ function setupScrollTrigger() {
       );
       gsap.fromTo(
         titleNext,
-        { opacity: 0, y: 100 },
+        { opacity: 0, x: -100 },
         {
           opacity: 1,
-          y: 0,
+          x: 0,
           delay: 0.5,
+        }
+      );
+      gsap.fromTo(
+        subtitleNext,
+        { opacity: 0, x: -100 },
+        {
+          opacity: 1,
+          x: 0,
+          delay: 0.8,
         }
       );
     }

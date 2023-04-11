@@ -15,7 +15,7 @@ export class Param {
   private _stats: any;
 
   public main = {
-    progress: { value: 0, min: 0, max: 1 },
+    progress: { value: 3, min: -3, max: 3 },
   };
 
   constructor() {
